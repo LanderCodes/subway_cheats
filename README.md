@@ -39,6 +39,14 @@ python3 subway_gui.py
 - Python 3
 - `pip install cryptography` (for AES decryption/encryption)
 
+## Setup: USB Debugging on Android
+
+1. On your Android phone: *Settings → About phone → Tap "Build number" 7 times → Developer options enabled*
+2. *Settings → System → Developer options → USB debugging* (toggle on)
+3. Connect phone to computer via USB
+4. On computer: run `adb devices` — should display the device identifier
+5. If prompted on the phone, accept the "Allow USB debugging?" confirmation
+
 ## License
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
