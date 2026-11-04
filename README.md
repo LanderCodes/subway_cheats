@@ -1,6 +1,7 @@
 # Subway Profile Tool
 
-A tool for editing Subway Surfers profile data on a USB-connected phone over ADB (no root required).
+A tool for editing Subway Surfers profile data on a USB-connected **Android** phone over ADB (no root required).
+**Platform: Android only** — this tool uses ADB to communicate with Android devices.
 
 ## Features
 

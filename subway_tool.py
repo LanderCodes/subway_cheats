@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
-"""
-Subway Surfers profile tool (adb, no root).
+"""Subway Surfers profile tool (adb, no root). Only works on Android via ADB."""
+import sys
+
+if "android" not in sys.platform:
+    print("Warning: This tool is designed for Android via ADB.", file=sys.stderr)
 
 Examples:
   ./subway status
