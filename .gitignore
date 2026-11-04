@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.secret
+*.db
+*.sqlite
+backup.ab
+.subway-tool/backups/*
+.subway-tool/last/*
+/sdcard/
+*.part
+*.zip
