@@ -1,36 +1,35 @@
 #!/usr/bin/env python3
-"""Subway Surfers profile tool (adb, no root). Only works on Android via ADB."""
-import sys
+"""Subway Surfers profile tool (adb, no root) for Windows and other desktops.
 
-if "android" not in sys.platform:
-    print("Warning: This tool is designed for Android via ADB.", file=sys.stderr)
+The tool edits profiles on a USB-connected Android phone. The host can be
+Windows, Linux or macOS; Windows is the primary target of this build.
 
-"""
-
-Examples:
-  ./subway status
-  ./subway refill 2000000000
-  ./subway set currency 2 999999999
-  ./subway own char holly songYi
-  ./subway own outfit holly partyOutfit sunglassesOutfit
-  ./subway own all chars
-  ./subway disown board roll&Race
-  ./subway select char holly partyOutfit
-  ./subway list chars --missing
-  ./subway backup
-  ./subway undo
-  ./subway menu
+Examples (Windows):
+  subway.bat status
+  subway.bat refill 2000000000
+  subway.bat set currency 2 999999999
+  subway.bat own char holly songYi
+  subway.bat own outfit holly partyOutfit sunglassesOutfit
+  subway.bat own all chars
+  subway.bat disown board "roll&Race"
+  subway.bat select char holly partyOutfit
+  subway.bat list chars --missing
+  subway.bat backup
+  subway.bat undo
+  subway.bat menu
 
 Notes:
   * The game is force-stopped before every write. Reopen it afterwards, or pass --start.
-  * Before each write the previous encrypted file is saved in ~/.subway-tool/last (undo).
+  * Before each write the previous encrypted file is saved as an undo snapshot.
   * Own/disown also works for portraits, frames, backgrounds, characters, outfits and boards.
+  * adb is located from the ADB env var, PATH, or a platform-tools folder next to this script.
 """
 import argparse
 import base64
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -38,20 +37,55 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import ios_backup
+
+
+def _configure_stdio():
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+
+_configure_stdio()
+
 try:
     from cryptography.hazmat.backends import default_backend
     from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 except ImportError:
     sys.exit("Missing dependency: pip install cryptography")
 
+APP_NAME = "subway-tool"
+
+
+def resource_base():
+    if getattr(sys, "frozen", False):
+        return Path(getattr(sys, "_MEIPASS", Path(sys.executable).resolve().parent))
+    return Path(__file__).resolve().parent
+
+
+def default_state_dir():
+    override = os.environ.get("SUBWAY_TOOL_HOME")
+    if override:
+        return Path(override).expanduser()
+    if os.name == "nt":
+        root = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA")
+        if root:
+            return Path(root) / APP_NAME
+    return Path.home() / f".{APP_NAME}"
+
+
 BASE = Path(__file__).resolve().parent
-DATA = BASE / "data"
-STATE = Path.home() / ".subway-tool"
+DATA = resource_base() / "data"
+STATE = default_state_dir()
 LAST = STATE / "last"
 PROFILE_DIR = "/sdcard/Android/data/com.kiloo.subwaysurf/files/profile"
 PKG = "com.kiloo.subwaysurf"
 KEY = b"9rkxCPljSM1GVQhWw1r1rKOHGccb2iJ5"
 IV = b"\0" * 16
+KEY_OVERRIDE = None
+IV_OVERRIDE = None
 
 CHARS_FILE = "characters_inventory.json"
 BOARDS_FILE = "boards_inventory.json"
@@ -70,6 +104,7 @@ ALLOWED_FILES = {
 }
 
 SERIAL = None
+PROFILE_DIR_OVERRIDE = None
 
 
 class ToolError(Exception):
@@ -93,103 +128,293 @@ FRAMES = load_ref("frames.json", [])
 BACKGROUNDS = load_ref("backgrounds.json", [])
 
 
+def find_adb():
+    override = os.environ.get("ADB") or os.environ.get("SUBWAY_ADB")
+    if override:
+        return override
+    found = shutil.which("adb")
+    if found:
+        return found
+    names = ["adb.exe", "adb"] if os.name == "nt" else ["adb"]
+    roots = [BASE]
+    if getattr(sys, "frozen", False):
+        roots.insert(0, Path(sys.executable).resolve().parent)
+    candidates = [root / "platform-tools" / name for root in roots for name in names]
+    candidates += [root / name for root in roots for name in names]
+    for candidate in candidates:
+        if candidate.is_file():
+            return str(candidate)
+    return names[0]
+
+
+ADB = find_adb()
+
+
 def adb():
-    return ["adb", "-s", SERIAL] if SERIAL else ["adb"]
+    return [ADB, "-s", SERIAL] if SERIAL else [ADB]
 
 
 def run_cmd(cmd, check=True):
-    proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    kwargs = {"stdout": subprocess.PIPE, "stderr": subprocess.PIPE}
+    if os.name == "nt":
+        kwargs["creationflags"] = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    try:
+        proc = subprocess.run(cmd, **kwargs)
+    except FileNotFoundError:
+        raise ToolError(
+            "adb not found. Install Android platform-tools, add adb to PATH, "
+            "or set the ADB environment variable to adb.exe."
+        )
     if check and proc.returncode != 0:
         msg = proc.stderr.decode(errors="replace").strip() or proc.stdout.decode(errors="replace").strip()
         raise ToolError(f"command failed: {' '.join(cmd)}\n{msg}")
     return proc
 
 
+class AdbBackend:
+    kind = "android"
+
+    def label(self):
+        return f"Android via adb ({SERIAL})" if SERIAL else "Android via adb"
+
+    def device_serial(self):
+        proc = run_cmd(adb() + ["get-serialno"], check=False)
+        serial = proc.stdout.decode(errors="replace").strip()
+        if proc.returncode != 0 or not serial or serial == "unknown":
+            raise ToolError("No adb device found. Connect the phone and enable USB debugging.")
+        return serial
+
+    def game_pid(self):
+        proc = run_cmd(adb() + ["shell", "pidof", PKG], check=False)
+        if proc.returncode == 0:
+            return proc.stdout.decode(errors="replace").strip()
+        return ""
+
+    def read(self, name):
+        proc = run_cmd(adb() + ["exec-out", "cat", f"{PROFILE_DIR}/{name}"])
+        if not proc.stdout:
+            raise ToolError(f"empty or missing remote file: {name}")
+        return proc.stdout
+
+    def write(self, name, data):
+        fd, tmp = tempfile.mkstemp(prefix="subway-", suffix=".json")
+        try:
+            with os.fdopen(fd, "wb") as handle:
+                handle.write(data)
+            run_cmd(adb() + ["push", tmp, f"{PROFILE_DIR}/{name}"])
+        finally:
+            try:
+                os.unlink(tmp)
+            except OSError:
+                pass
+
+    def list_files(self):
+        proc = run_cmd(adb() + ["shell", f"ls -1 {PROFILE_DIR}"])
+        names = []
+        for line in proc.stdout.decode(errors="replace").splitlines():
+            name = line.strip()
+            if name and re.fullmatch(r"[A-Za-z0-9_.-]+", name):
+                names.append(name)
+        return names
+
+    def stop(self, args):
+        if not self.game_pid():
+            return False
+        if getattr(args, "dry_run", False):
+            print("Game is running; would force-stop it.")
+            return False
+        if not getattr(args, "yes", False):
+            if sys.stdin.isatty():
+                answer = input("Game is running. Force-stop it? Unsaved run progress will be lost [y/N] ").strip().lower()
+                if answer not in ("y", "yes"):
+                    raise ToolError("aborted")
+            else:
+                raise ToolError("Game is running; re-run with --yes to force-stop it")
+        run_cmd(adb() + ["shell", "am", "force-stop", PKG])
+        time.sleep(1)
+        print("Game stopped.")
+        return True
+
+    def start(self, args):
+        if getattr(args, "start", False) and not getattr(args, "dry_run", False):
+            run_cmd(adb() + ["shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1"], check=False)
+            print("Game launched.")
+
+
+class LocalDirBackend:
+    kind = "local"
+
+    def __init__(self, path):
+        self.path = Path(path).expanduser()
+        if not self.path.is_dir():
+            raise ToolError(f"profile folder not found: {self.path}")
+
+    def label(self):
+        return f"Local profile folder ({self.path})"
+
+    def device_serial(self):
+        return str(self.path)
+
+    def game_pid(self):
+        return ""
+
+    def read(self, name):
+        path = self.path / name
+        if not path.is_file():
+            raise ToolError(f"missing file: {path}")
+        return path.read_bytes()
+
+    def write(self, name, data):
+        (self.path / name).write_bytes(data)
+
+    def list_files(self):
+        return sorted(
+            p.name for p in self.path.iterdir()
+            if p.is_file() and not p.name.startswith(".") and re.fullmatch(r"[A-Za-z0-9_.-]+", p.name)
+        )
+
+    def stop(self, args):
+        if not getattr(args, "dry_run", False):
+            print("Local profile mode: make sure Subway Surfers is fully closed.")
+        return False
+
+    def start(self, args):
+        return None
+
+
+BACKEND = AdbBackend()
+
+
+def select_backend(profile_dir=None):
+    global BACKEND
+    path = profile_dir or PROFILE_DIR_OVERRIDE or os.environ.get("SUBWAY_PROFILE_DIR")
+    if path:
+        BACKEND = LocalDirBackend(path)
+    else:
+        BACKEND = AdbBackend()
+    return BACKEND
+
+
 def device_serial():
-    proc = run_cmd(adb() + ["get-serialno"], check=False)
-    serial = proc.stdout.decode(errors="replace").strip()
-    if proc.returncode != 0 or not serial or serial == "unknown":
-        raise ToolError("No adb device found. Connect the phone and enable USB debugging.")
-    return serial
+    return BACKEND.device_serial()
 
 
 def game_pid():
-    proc = run_cmd(adb() + ["shell", "pidof", PKG], check=False)
-    if proc.returncode == 0:
-        return proc.stdout.decode(errors="replace").strip()
-    return ""
+    return BACKEND.game_pid()
 
 
 def read_remote(name):
-    proc = run_cmd(adb() + ["exec-out", "cat", f"{PROFILE_DIR}/{name}"])
-    if not proc.stdout:
-        raise ToolError(f"empty or missing remote file: {name}")
-    return proc.stdout
+    return BACKEND.read(name)
 
 
 def write_remote(name, data):
-    fd, tmp = tempfile.mkstemp(prefix="subway-", suffix=".json")
-    try:
-        with os.fdopen(fd, "wb") as handle:
-            handle.write(data)
-        run_cmd(adb() + ["push", tmp, f"{PROFILE_DIR}/{name}"])
-    finally:
-        try:
-            os.unlink(tmp)
-        except OSError:
-            pass
+    return BACKEND.write(name, data)
+
+
+def list_remote_files():
+    return BACKEND.list_files()
 
 
 def stop_game(args):
-    if not game_pid():
-        return False
-    if getattr(args, "dry_run", False):
-        print("Game is running; would force-stop it.")
-        return False
-    if not getattr(args, "yes", False):
-        if sys.stdin.isatty():
-            answer = input("Game is running. Force-stop it? Unsaved run progress will be lost [y/N] ").strip().lower()
-            if answer not in ("y", "yes"):
-                raise ToolError("aborted")
-        else:
-            raise ToolError("Game is running; re-run with --yes to force-stop it")
-    run_cmd(adb() + ["shell", "am", "force-stop", PKG])
-    time.sleep(1)
-    print("Game stopped.")
-    return True
+    return BACKEND.stop(args)
 
 
 def start_game(args):
-    if getattr(args, "start", False) and not getattr(args, "dry_run", False):
-        run_cmd(adb() + ["shell", "monkey", "-p", PKG, "-c", "android.intent.category.LAUNCHER", "1"], check=False)
-        print("Game launched.")
+    return BACKEND.start(args)
 
 
-def decrypt_env(env):
+def _decode_key(value, default):
+    if not value:
+        return default
+    if value.startswith("hex:"):
+        return bytes.fromhex(value[4:])
+    return value.encode("utf-8")
+
+
+def active_key():
+    return _decode_key(KEY_OVERRIDE, KEY)
+
+
+def active_iv():
+    return _decode_key(IV_OVERRIDE, IV)
+
+
+def _b64decode(text):
+    padded = text + "=" * (-len(text) % 4)
     try:
-        ciphertext = base64.b64decode(env["data"])
+        return base64.b64decode(padded, validate=True)
     except Exception as exc:
         raise ToolError(f"bad profile envelope: {exc}")
-    dec = Cipher(algorithms.AES(KEY), modes.CBC(IV), backend=default_backend()).decryptor()
+
+
+def _aes_decrypt(ciphertext):
+    dec = Cipher(algorithms.AES(active_key()), modes.CBC(active_iv()), backend=default_backend()).decryptor()
     plain = dec.update(ciphertext) + dec.finalize()
     if not plain:
         raise ToolError("empty profile payload")
     pad = plain[-1]
     if 1 <= pad <= 16 and plain[-pad:] == bytes([pad]) * pad:
         plain = plain[:-pad]
+    return plain
+
+
+def _aes_encrypt(plain):
+    padnum = 16 - len(plain) % 16
+    plain += bytes([padnum]) * padnum
+    enc = Cipher(algorithms.AES(active_key()), modes.CBC(active_iv()), backend=default_backend()).encryptor()
+    return enc.update(plain) + enc.finalize()
+
+
+def decrypt_env(env):
+    if not isinstance(env, dict):
+        raise ToolError("profile envelope must be a JSON object")
+    payload = env.get("data")
+    if isinstance(payload, dict):
+        env["_subway_format"] = "inline"
+        return payload
+    if not isinstance(payload, str):
+        raise ToolError("profile envelope has no string data")
+    text = payload.strip()
+    if text.startswith("{") or text.startswith("["):
+        try:
+            parsed = json.loads(text)
+        except Exception as exc:
+            raise ToolError(f"could not parse plaintext profile: {exc}")
+        env["_subway_format"] = "plain"
+        return parsed
     try:
-        return json.loads(plain)
+        plain = _aes_decrypt(_b64decode(text))
+    except ToolError:
+        raise
+    except Exception as exc:
+        raise ToolError(
+            f"could not decrypt profile: {exc}. If this is an iOS plaintext profile, "
+            "its data field should contain JSON instead of base64."
+        )
+    try:
+        parsed = json.loads(plain)
     except Exception as exc:
         raise ToolError(f"could not parse decrypted profile: {exc}")
+    env["_subway_format"] = "aes"
+    return parsed
+
+
+def encode_env(data, version, fmt="aes"):
+    if fmt == "inline":
+        env = {"version": version, "data": data}
+    else:
+        text = json.dumps(data, separators=(",", ":"), ensure_ascii=False)
+        if fmt == "plain":
+            env = {"version": version, "data": text}
+        else:
+            ciphertext = _aes_encrypt(text.encode("utf-8"))
+            env = {"version": version, "data": base64.b64encode(ciphertext).decode("ascii")}
+    env["_subway_format"] = fmt
+    return env
 
 
 def encrypt_env(data, version):
-    plain = json.dumps(data, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    pad = 16 - len(plain) % 16
-    plain += bytes([pad]) * pad
-    enc = Cipher(algorithms.AES(KEY), modes.CBC(IV), backend=default_backend()).encryptor()
-    ciphertext = enc.update(plain) + enc.finalize()
-    return {"version": version, "data": base64.b64encode(ciphertext).decode("ascii")}
+    return encode_env(data, version, "aes")
 
 
 def now_iso():
@@ -216,7 +441,8 @@ def save_profile(name, data, env, raw, args, note=""):
             (LAST / name).write_bytes(raw)
         except OSError:
             pass
-    new_env = encrypt_env(data, env.get("version", 1))
+    fmt = env.get("_subway_format", "aes")
+    new_env = encode_env(data, env.get("version", 1), fmt)
     write_remote(name, json.dumps(new_env, separators=(",", ":")).encode("utf-8"))
     print(f"wrote {name}" + (f" ({note})" if note else ""))
 
@@ -846,16 +1072,6 @@ def cmd_select(args):
     start_game(args)
 
 
-def list_remote_files():
-    proc = run_cmd(adb() + ["shell", f"ls -1 {PROFILE_DIR}"])
-    names = []
-    for line in proc.stdout.decode(errors="replace").splitlines():
-        name = line.strip()
-        if name and re.fullmatch(r"[A-Za-z0-9_.-]+", name):
-            names.append(name)
-    return names
-
-
 def cmd_backup(args):
     device_serial()
     target = Path(args.dir) if args.dir else STATE / "backups" / datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -931,9 +1147,71 @@ def cmd_raw(args):
     raise ToolError(f"unknown raw action: {args.action}")
 
 
+def _confirm(question):
+    if not sys.stdin.isatty():
+        return False
+    return input(question + " [y/N] ").strip().lower() in ("y", "yes")
+
+
+def cmd_ios(args):
+    action = getattr(args, "ios_command", None)
+    backup_arg = getattr(args, "backup", None)
+    try:
+        if action in (None, "backups"):
+            backups = ios_backup.find_backups()
+            if not backups:
+                raise ios_backup.IosBackupError(
+                    "no iOS backups found. Create one with Finder, or run: "
+                    "idevicebackup2 backup --full <folder>"
+                )
+            for path in backups:
+                print(ios_backup.describe(path))
+                print(" ", path)
+            return
+        backup = ios_backup.resolve_backup(backup_arg)
+        if action == "info":
+            print(ios_backup.describe(backup))
+            for entry in ios_backup.list_profile_entries(backup):
+                print(" ", entry["relativePath"])
+            return
+        if action == "pull":
+            if getattr(args, "dest", None):
+                dest = Path(args.dest).expanduser()
+            else:
+                stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+                dest = STATE / "ios" / stamp / "profile"
+            dest, count = ios_backup.pull(backup, dest)
+            print(f"copied {count} profile files to {dest}")
+            print(f'edit with: subway --profile-dir "{dest}" status')
+            return
+        if action == "push":
+            stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+            undo = STATE / "ios-undo" / stamp
+            count = ios_backup.push(backup, args.dir, undo_dir=undo)
+            print(f"pushed {count} profile files into {backup}")
+            print(f"undo snapshot: {undo}")
+            print(f'apply with: subway ios restore --backup "{backup}" --yes')
+            return
+        if action == "restore":
+            if not (getattr(args, "yes", False) or _confirm("Restore this backup to the iPhone? Apps may restart")):
+                raise ToolError("aborted")
+            ios_backup.restore(backup, udid=getattr(args, "udid", None))
+            print("restore command finished; the phone may reboot. Keep it plugged in.")
+            return
+    except ios_backup.IosBackupError as exc:
+        raise ToolError(str(exc))
+    raise ToolError(f"unknown ios action: {action}")
+
+
 def add_common(parser, suppress=False):
     default = argparse.SUPPRESS if suppress else None
     parser.add_argument("--serial", default=default, help="adb device serial")
+    parser.add_argument("--profile-dir", default=default,
+                        help="edit a local profile folder instead of a phone")
+    parser.add_argument("--key", default=default,
+                        help="AES key override (UTF-8 text, or hex:...)")
+    parser.add_argument("--iv", default=default,
+                        help="AES IV override (UTF-8 text, or hex:...)")
     parser.add_argument("--yes", action="store_true", default=(argparse.SUPPRESS if suppress else False),
                         help="do not ask before force-stopping the game")
     parser.add_argument("--start", action="store_true", default=(argparse.SUPPRESS if suppress else False),
@@ -1020,16 +1298,66 @@ def build_parser():
     add_common(p, suppress=True)
     p.set_defaults(func=lambda args: menu())
 
+    p = sub.add_parser("ios", help="work with unencrypted iOS backups (stock iPhone)")
+    add_common(p, suppress=True)
+    p.add_argument("--backup", help="backup folder (default: newest)")
+    p.set_defaults(func=cmd_ios)
+    ios_sub = p.add_subparsers(dest="ios_command")
+
+    sp = ios_sub.add_parser("backups", help="list available iOS backups")
+    add_common(sp, suppress=True)
+    sp.add_argument("--backup", default=argparse.SUPPRESS)
+    sp.set_defaults(func=cmd_ios)
+
+    sp = ios_sub.add_parser("info", help="list profile files in a backup")
+    add_common(sp, suppress=True)
+    sp.add_argument("--backup", default=argparse.SUPPRESS)
+    sp.set_defaults(func=cmd_ios)
+
+    sp = ios_sub.add_parser("pull", help="extract profile files from a backup")
+    add_common(sp, suppress=True)
+    sp.add_argument("dest", nargs="?")
+    sp.add_argument("--backup", default=argparse.SUPPRESS)
+    sp.set_defaults(func=cmd_ios)
+
+    sp = ios_sub.add_parser("push", help="inject a profile folder into a backup")
+    add_common(sp, suppress=True)
+    sp.add_argument("dir")
+    sp.add_argument("--backup", default=argparse.SUPPRESS)
+    sp.set_defaults(func=cmd_ios)
+
+    sp = ios_sub.add_parser("restore", help="restore the edited backup to the iPhone")
+    add_common(sp, suppress=True)
+    sp.add_argument("--backup", default=argparse.SUPPRESS)
+    sp.add_argument("--udid")
+    sp.set_defaults(func=cmd_ios)
+
     return parser
 
 
 PARSER = build_parser()
 
 
+def _configure(args):
+    global SERIAL, KEY_OVERRIDE, IV_OVERRIDE, PROFILE_DIR_OVERRIDE
+    serial = getattr(args, "serial", None)
+    if serial is not None:
+        SERIAL = serial
+    key = getattr(args, "key", None)
+    if key is not None:
+        KEY_OVERRIDE = key
+    iv = getattr(args, "iv", None)
+    if iv is not None:
+        IV_OVERRIDE = iv
+    profile = getattr(args, "profile_dir", None)
+    if profile is not None:
+        PROFILE_DIR_OVERRIDE = profile
+    select_backend(PROFILE_DIR_OVERRIDE)
+
+
 def run_argv(argv):
-    global SERIAL
     args = PARSER.parse_args(argv)
-    SERIAL = args.serial
+    _configure(args)
     if hasattr(args, "func"):
         args.func(args)
 
@@ -1105,9 +1433,8 @@ def menu():
 
 
 def main(argv=None):
-    global SERIAL
     args = PARSER.parse_args(argv)
-    SERIAL = args.serial
+    _configure(args)
     if not hasattr(args, "func"):
         menu()
         return 0

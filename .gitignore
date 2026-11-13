@@ -22,3 +22,8 @@ windows/*.spec.bak
 Thumbs.db
 desktop.ini
 .venv/
+# macOS build artifacts and metadata
+/build/
+/dist/
+*.app/
+.DS_Store

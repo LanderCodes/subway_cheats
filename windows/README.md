@@ -64,7 +64,8 @@ Outputs:
 - `dist\subway.exe` — command-line tool
 - `dist\subway-gui.exe` — windowed GUI
 
-The reference JSON data in `data\` is bundled into both executables.
+The shared `subway_tool.py`, `subway_gui_tk.py`, `ios_backup.py`, and
+`data\` from the repository root are bundled into both executables.
 
 ## State and backups
 
@@ -99,12 +100,18 @@ subway.bat raw get wallet.json
 subway.bat menu
 ```
 
-Common flags: `--serial <id>`, `--start`, `--yes`, `--dry-run`.
+Common flags: `--serial <id>`, `--profile-dir <folder>`, `--key`, `--iv`,
+`--start`, `--yes`, `--dry-run`.
+
+`--profile-dir` (or `SUBWAY_PROFILE_DIR`) edits a local folder instead of a
+phone. The iOS backup commands (`subway.bat ios ...`) are also available, though
+the iPhone workflow is documented for macOS in [`../mac/README.md`](../mac/README.md).
 
 ## Notes
 
 - The game is force-stopped before every write. Reopen it afterwards or pass
   `--start`.
 - Only one ADB device is used unless `--serial` is given.
-- `subway_tool.py` and `subway_gui_tk.py` are cross-platform; this folder exists
-  to keep the Windows build (launchers, PyInstaller spec) self-contained.
+- `subway_tool.py`, `subway_gui_tk.py`, and `ios_backup.py` at the repository
+  root are the shared sources. This folder only contains Windows launchers and
+  the PyInstaller spec.

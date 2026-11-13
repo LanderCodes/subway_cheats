@@ -1,11 +1,11 @@
 # -*- mode: python ; coding: utf-8 -*-
 """PyInstaller spec: builds dist/subway.exe and dist/subway-gui.exe."""
 
-datas = [("data", "data")]
+datas = [("../data", "data")]
 
 cli = Analysis(
-    ["subway_tool.py"],
-    pathex=[],
+    ["../subway_tool.py"],
+    pathex=[".."],
     binaries=[],
     datas=datas,
     hiddenimports=[],
@@ -39,11 +39,11 @@ cli_exe = EXE(
 )
 
 gui = Analysis(
-    ["subway_gui_tk.py"],
-    pathex=[],
+    ["../subway_gui_tk.py"],
+    pathex=[".."],
     binaries=[],
     datas=datas,
-    hiddenimports=["subway_tool"],
+    hiddenimports=["subway_tool", "ios_backup"],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
