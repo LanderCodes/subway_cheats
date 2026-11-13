@@ -31,13 +31,44 @@ local backup on macOS.
 - **iPhone:** a macOS host, `libimobiledevice`
   (`brew install libimobiledevice`), and an **unencrypted** backup
 
-## Quick start
+## Installation
 
-Linux/macOS:
+### Installer
+
+Clone the repository and run the installer:
 
 ```bash
 git clone git@github.com:LanderCodes/subway_cheats.git
 cd subway_cheats
+python3 install.py
+```
+
+On Windows use `py -3 install.py`. The installer asks which OS you are on and
+what you want:
+
+- **Commands** — install dependencies and add `subway` to PATH
+- **Source** — install dependencies only; run from the checkout
+- **Standalone** (Windows only) — build `.exe` files and add them to PATH
+
+It installs `cryptography`, creates launchers, and offers to update PATH. It
+does not install system tools such as `adb`; see Requirements.
+
+Non-interactive examples:
+
+```bash
+python3 install.py --yes --mode commands
+python3 install.py --yes --mode source
+python3 install.py --os windows --mode exe
+```
+
+Options: `--os`, `--mode`, `--prefix`, `--yes`. macOS installer support is
+planned; use the manual steps in [`mac/README.md`](mac/README.md) for now.
+
+### Manual
+
+Linux/macOS:
+
+```bash
 python3 -m pip install cryptography
 ./subway status
 ```
@@ -45,8 +76,6 @@ python3 -m pip install cryptography
 Windows:
 
 ```bat
-git clone git@github.com:LanderCodes/subway_cheats.git
-cd subway_cheats
 py -3 -m pip install cryptography
 windows\subway.bat status
 ```

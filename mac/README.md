@@ -36,6 +36,7 @@ Still to validate on real hardware:
 4. Check that new `Manifest.db` rows restore correctly, or fall back to
    updating only files already present in the backup.
 5. Run the Tkinter GUI on macOS and build/sign/notarize the `.app` bundle.
+6. Add macOS support to the root `install.py` (currently Linux/Windows).
 
 Known limitations:
 
