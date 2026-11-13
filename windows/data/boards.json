@@ -1,0 +1,1273 @@
+{
+ "default": [
+  "default"
+ ],
+ "starboard": [
+  "default",
+  "trail",
+  "doubleJump"
+ ],
+ "superhero": [
+  "default",
+  "teleport",
+  "jumper"
+ ],
+ "freestyler": [
+  "default",
+  "doubleJump",
+  "jumper"
+ ],
+ "bigKahuna": [
+  "default",
+  "glider",
+  "lowrider"
+ ],
+ "bouncer": [
+  "default"
+ ],
+ "lowrider": [
+  "default"
+ ],
+ "liberty": [
+  "default"
+ ],
+ "sunset": [
+  "default",
+  "trail",
+  "glider"
+ ],
+ "monster": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "skullFire": [
+  "default",
+  "doubleJump",
+  "highSpeed"
+ ],
+ "toucan": [
+  "default"
+ ],
+ "lumberjack": [
+  "default",
+  "doubleJump",
+  "lowrider"
+ ],
+ "daredevil": [
+  "default"
+ ],
+ "kickOff": [
+  "default"
+ ],
+ "chicky": [
+  "default",
+  "trail",
+  "highSpeed"
+ ],
+ "scoot": [
+  "default",
+  "teleport",
+  "highSpeed"
+ ],
+ "outback": [
+  "default"
+ ],
+ "greatWhite": [
+  "default",
+  "speed",
+  "glider"
+ ],
+ "cherry": [
+  "default"
+ ],
+ "kitty": [
+  "default"
+ ],
+ "flamingo": [
+  "default"
+ ],
+ "hotrod": [
+  "default"
+ ],
+ "rose": [
+  "default"
+ ],
+ "panda": [
+  "default"
+ ],
+ "dragon": [
+  "default"
+ ],
+ "teddy": [
+  "default"
+ ],
+ "pumpkin": [
+  "default"
+ ],
+ "snowflake": [
+  "default"
+ ],
+ "jingles": [
+  "default",
+  "trail",
+  "superJump"
+ ],
+ "bengal": [
+  "default"
+ ],
+ "bubblegum": [
+  "default"
+ ],
+ "prickly": [
+  "default"
+ ],
+ "moose": [
+  "default"
+ ],
+ "windglider": [
+  "default"
+ ],
+ "banana": [
+  "default"
+ ],
+ "teleporter": [
+  "default"
+ ],
+ "cruiser": [
+  "default"
+ ],
+ "croc": [
+  "default"
+ ],
+ "turtle": [
+  "default",
+  "trail"
+ ],
+ "rudy": [
+  "default"
+ ],
+ "roller": [
+  "default"
+ ],
+ "tiki": [
+  "default"
+ ],
+ "oldDusty": [
+  "default",
+  "trail"
+ ],
+ "gondola": [
+  "default"
+ ],
+ "birdie": [
+  "default"
+ ],
+ "waveRider": [
+  "default"
+ ],
+ "thunderbolt": [
+  "default"
+ ],
+ "woody": [
+  "default"
+ ],
+ "phantom": [
+  "default",
+  "teleport"
+ ],
+ "chooChoo": [
+  "default"
+ ],
+ "groovy": [
+  "default",
+  "trail"
+ ],
+ "jouster": [
+  "default"
+ ],
+ "chameleon": [
+  "default"
+ ],
+ "ray": [
+  "default"
+ ],
+ "tumi": [
+  "default",
+  "teleport"
+ ],
+ "lion": [
+  "default"
+ ],
+ "orni": [
+  "default",
+  "glider"
+ ],
+ "medal": [
+  "default"
+ ],
+ "bigBlue": [
+  "default"
+ ],
+ "chrome": [
+  "default"
+ ],
+ "hexed": [
+  "default"
+ ],
+ "eagle": [
+  "default"
+ ],
+ "glacier": [
+  "default"
+ ],
+ "pedal": [
+  "default"
+ ],
+ "jewelled": [
+  "default"
+ ],
+ "speeder": [
+  "default"
+ ],
+ "ukulele": [
+  "default"
+ ],
+ "hammer": [
+  "default"
+ ],
+ "birthday": [
+  "default"
+ ],
+ "cobra": [
+  "default"
+ ],
+ "rickshaw": [
+  "default"
+ ],
+ "mosaic": [
+  "default"
+ ],
+ "casket": [
+  "default"
+ ],
+ "sleigh": [
+  "default"
+ ],
+ "scarab": [
+  "default",
+  "glider",
+  "highSpeed"
+ ],
+ "hotdog": [
+  "default"
+ ],
+ "sweetheart": [
+  "default"
+ ],
+ "splash": [
+  "default"
+ ],
+ "renegade": [
+  "default"
+ ],
+ "bassBlaster": [
+  "default",
+  "trail",
+  "jumper"
+ ],
+ "colorCloud": [
+  "default",
+  "highSpeed",
+  "teleport"
+ ],
+ "yellowCab": [
+  "default"
+ ],
+ "rockstar": [
+  "default"
+ ],
+ "wayfarer": [
+  "default",
+  "glider"
+ ],
+ "magicCarpet": [
+  "default",
+  "glider",
+  "jumper"
+ ],
+ "rocket": [
+  "default",
+  "trail",
+  "highSpeed"
+ ],
+ "scratchy": [
+  "default"
+ ],
+ "fireDragon": [
+  "default"
+ ],
+ "pixelHeart": [
+  "default"
+ ],
+ "clockwork": [
+  "default"
+ ],
+ "desertRacer": [
+  "default"
+ ],
+ "diablo": [
+  "default"
+ ],
+ "4thOfJuly": [
+  "default",
+  "trail",
+  "highSpeed"
+ ],
+ "naga": [
+  "default"
+ ],
+ "stallion": [
+  "default",
+  "trail",
+  "jumper"
+ ],
+ "leaf": [
+  "default"
+ ],
+ "retroWave": [
+  "default"
+ ],
+ "starcruiser": [
+  "default"
+ ],
+ "spaceship": [
+  "default"
+ ],
+ "jazz": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "aero": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "scroll": [
+  "default"
+ ],
+ "roto": [
+  "default"
+ ],
+ "punk": [
+  "default"
+ ],
+ "betty": [
+  "default"
+ ],
+ "coral": [
+  "default"
+ ],
+ "nflpaPrescott": [
+  "default"
+ ],
+ "nflpaJackson": [
+  "default"
+ ],
+ "nflpaBrady": [
+  "default"
+ ],
+ "nflpaBeckham": [
+  "default"
+ ],
+ "nflpaMahomes": [
+  "default"
+ ],
+ "nflpaBarkley": [
+  "default"
+ ],
+ "goat": [
+  "default"
+ ],
+ "beelzebook": [
+  "default"
+ ],
+ "sakarCrew": [
+  "default"
+ ],
+ "sakarSurfSpray": [
+  "default"
+ ],
+ "sakarWildStyle": [
+  "default"
+ ],
+ "sakarCrewCrush": [
+  "default"
+ ],
+ "sakarBlueIce": [
+  "default"
+ ],
+ "secretSociety": [
+  "default"
+ ],
+ "endeavour": [
+  "default"
+ ],
+ "discovery": [
+  "default"
+ ],
+ "crane": [
+  "default"
+ ],
+ "buddyBear": [
+  "default"
+ ],
+ "uprock": [
+  "default"
+ ],
+ "bunny": [
+  "default"
+ ],
+ "shuttle": [
+  "default"
+ ],
+ "viking": [
+  "default"
+ ],
+ "birthday2021": [
+  "default"
+ ],
+ "bamboo": [
+  "default"
+ ],
+ "dragonBoat": [
+  "default"
+ ],
+ "paintPalette": [
+  "default"
+ ],
+ "parasol": [
+  "default"
+ ],
+ "sakura": [
+  "default"
+ ],
+ "beach": [
+  "default"
+ ],
+ "queenofhearts": [
+  "default"
+ ],
+ "camel": [
+  "default"
+ ],
+ "torito": [
+  "default"
+ ],
+ "mapleLeaf": [
+  "default",
+  "glider",
+  "superJump"
+ ],
+ "beachPop": [
+  "default"
+ ],
+ "gingerBoom": [
+  "default"
+ ],
+ "atomicTile": [
+  "default"
+ ],
+ "lunarTiger": [
+  "default"
+ ],
+ "astronave": [
+  "default"
+ ],
+ "spring": [
+  "default"
+ ],
+ "rollsRabbit": [
+  "default"
+ ],
+ "crashTest": [
+  "default",
+  "highSpeed"
+ ],
+ "superSurfer": [
+  "default"
+ ],
+ "birthday2022": [
+  "default"
+ ],
+ "trickster": [
+  "default"
+ ],
+ "boombastic": [
+  "default"
+ ],
+ "magNeatO": [
+  "default"
+ ],
+ "ssskater": [
+  "default"
+ ],
+ "moped": [
+  "default"
+ ],
+ "aeroFish": [
+  "default",
+  "highSpeed"
+ ],
+ "smokingSlime": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "nightlute": [
+  "default",
+  "highSpeed"
+ ],
+ "zuperzapper": [
+  "default"
+ ],
+ "hohohoverboard": [
+  "default"
+ ],
+ "snowCloud": [
+  "default"
+ ],
+ "xmas2022": [
+  "default"
+ ],
+ "carpdiem": [
+  "default"
+ ],
+ "ghastlyglider": [
+  "default"
+ ],
+ "fanTastic": [
+  "default"
+ ],
+ "viperfish": [
+  "default"
+ ],
+ "iscream": [
+  "default"
+ ],
+ "tagger": [
+  "default"
+ ],
+ "dangerdasher": [
+  "default",
+  "lowrider",
+  "doubleJump"
+ ],
+ "birthday2023": [
+  "default"
+ ],
+ "flyingHorse": [
+  "default"
+ ],
+ "colourshift": [
+  "default",
+  "glider"
+ ],
+ "bigBoss": [
+  "default",
+  "highSpeed"
+ ],
+ "futureWave": [
+  "default",
+  "highSpeed",
+  "doubleJump"
+ ],
+ "jamanta": [
+  "default",
+  "glider"
+ ],
+ "kite": [
+  "default"
+ ],
+ "sweetchili": [
+  "default"
+ ],
+ "raveRider": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "flamingdoll": [
+  "default",
+  "lowrider",
+  "superJump"
+ ],
+ "backtothefuture": [
+  "default"
+ ],
+ "kdillac": [
+  "default"
+ ],
+ "energy": [
+  "default",
+  "teleport",
+  "superJump"
+ ],
+ "retroorange": [
+  "default"
+ ],
+ "neoseoul": [
+  "default"
+ ],
+ "sharpeed": [
+  "default",
+  "superJump",
+  "highSpeed"
+ ],
+ "fauxpunx": [
+  "default"
+ ],
+ "flashjet": [
+  "default"
+ ],
+ "winduprocket": [
+  "default"
+ ],
+ "snowdown": [
+  "default"
+ ],
+ "badabomb": [
+  "default"
+ ],
+ "electroshock": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "skyrocket": [
+  "default",
+  "highSpeed",
+  "doubleJump"
+ ],
+ "confetticrush": [
+  "default"
+ ],
+ "lunarscroll": [
+  "default"
+ ],
+ "roaringheart": [
+  "default",
+  "highSpeed",
+  "doubleJump"
+ ],
+ "redvelvet": [
+  "default"
+ ],
+ "interstellar": [
+  "default",
+  "glider",
+  "lowrider"
+ ],
+ "astrotune": [
+  "default",
+  "doubleJump",
+  "highSpeed"
+ ],
+ "shamrockshebang": [
+  "default",
+  "glider"
+ ],
+ "meggabite": [
+  "default",
+  "highSpeed",
+  "lowrider"
+ ],
+ "fastandfestive": [
+  "default"
+ ],
+ "jak": [
+  "default",
+  "glider",
+  "highSpeed"
+ ],
+ "teatimer": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "delivroom": [
+  "default",
+  "doubleJump"
+ ],
+ "radiantrider": [
+  "default"
+ ],
+ "jellyboard": [
+  "default",
+  "highSpeed"
+ ],
+ "yellowsub": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "koinobori": [
+  "default"
+ ],
+ "birthday2024": [
+  "default"
+ ],
+ "mayomania": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "pixelhoverboard": [
+  "default",
+  "lowrider"
+ ],
+ "streetgrace": [
+  "default",
+  "doubleJump"
+ ],
+ "alarmon": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "rocknriley": [
+  "default",
+  "highSpeed"
+ ],
+ "sunnysailor": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "laserflip": [
+  "default",
+  "doubleJump"
+ ],
+ "standingovation": [
+  "default"
+ ],
+ "riskyride": [
+  "default",
+  "highSpeed",
+  "lowrider"
+ ],
+ "glarx3000": [
+  "default",
+  "glider"
+ ],
+ "heavymetal": [
+  "default",
+  "highSpeed",
+  "lowrider"
+ ],
+ "champ": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "arrow": [
+  "default",
+  "highSpeed"
+ ],
+ "sportysummer": [
+  "default"
+ ],
+ "raggedyrunner": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "turbostump": [
+  "default",
+  "highSpeed"
+ ],
+ "brasswhizz": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "chopchopboard": [
+  "default"
+ ],
+ "cookexpress": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "mooncake": [
+  "default"
+ ],
+ "veggievelocity": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "couchSurfer": [
+  "default",
+  "glider",
+  "doubleJump"
+ ],
+ "catalyst": [
+  "default"
+ ],
+ "flashofflavor": [
+  "default"
+ ],
+ "feartractor": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "scifly": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "skeletuna": [
+  "default"
+ ],
+ "pitchdark": [
+  "default",
+  "highSpeed"
+ ],
+ "foxtrail": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "fallspeed": [
+  "default",
+  "doubleJump"
+ ],
+ "pathfinder": [
+  "default"
+ ],
+ "cozycruiser": [
+  "default",
+  "highSpeed",
+  "lowrider"
+ ],
+ "icicle": [
+  "default",
+  "glider"
+ ],
+ "suitcasesaga": [
+  "default"
+ ],
+ "jingledingle": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "shinysurprise": [
+  "default"
+ ],
+ "gadgetforce": [
+  "default",
+  "doubleJump"
+ ],
+ "icecool": [
+  "default"
+ ],
+ "hyperviper": [
+  "default",
+  "highSpeed"
+ ],
+ "lantern": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "override": [
+  "default"
+ ],
+ "freshlove": [
+  "default",
+  "highSpeed"
+ ],
+ "heartstopper": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "deardart": [
+  "default"
+ ],
+ "roarsome": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "arara": [
+  "default",
+  "lowrider"
+ ],
+ "moongazer": [
+  "default"
+ ],
+ "purplespin": [
+  "default",
+  "superJump",
+  "lowrider"
+ ],
+ "cyannote": [
+  "default",
+  "glider"
+ ],
+ "blueriff": [
+  "default"
+ ],
+ "eggscalibur": [
+  "default",
+  "doubleJump"
+ ],
+ "bloomster": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "edinburst": [
+  "default"
+ ],
+ "guardboard": [
+  "default",
+  "glider",
+  "highSpeed"
+ ],
+ "trespasser": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "mizuDash": [
+  "default",
+  "highSpeed"
+ ],
+ "zapline": [
+  "default"
+ ],
+ "birthday2025": [
+  "default"
+ ],
+ "youarehere": [
+  "default",
+  "doubleJump",
+  "highSpeed"
+ ],
+ "freebird": [
+  "default"
+ ],
+ "sevenseas": [
+  "default",
+  "lowrider"
+ ],
+ "glitterBlaster": [
+  "default",
+  "superJump"
+ ],
+ "feelingBeachy": [
+  "default"
+ ],
+ "floatBooster": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "streetStyle": [
+  "default",
+  "lowrider",
+  "superJump"
+ ],
+ "roll&Race": [
+  "default",
+  "highSpeed"
+ ],
+ "midsummer": [
+  "default"
+ ],
+ "businessTime": [
+  "default",
+  "lowrider",
+  "highSpeed"
+ ],
+ "rabbitRacer": [
+  "default",
+  "doubleJump"
+ ],
+ "circuitBunny": [
+  "default"
+ ],
+ "eRacer": [
+  "default"
+ ],
+ "brainstormer": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "principalsNightmare": [
+  "default",
+  "highSpeed"
+ ],
+ "theDelyreious": [
+  "default",
+  "superJump",
+  "highSpeed"
+ ],
+ "moonBiter": [
+  "default",
+  "doubleJump"
+ ],
+ "eightBall": [
+  "default"
+ ],
+ "pieceOfCake": [
+  "default"
+ ],
+ "finishLine": [
+  "default",
+  "superJump"
+ ],
+ "motorMania": [
+  "default",
+  "doubleJump",
+  "lowrider"
+ ],
+ "fiesta": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "shinSupreme": [
+  "default",
+  "doubleJump"
+ ],
+ "galacticPeel": [
+  "default"
+ ],
+ "charmer": [
+  "default",
+  "lowrider"
+ ],
+ "biasBoom": [
+  "default",
+  "superJump",
+  "highSpeed"
+ ],
+ "fourLeafFlux": [
+  "default"
+ ],
+ "gobbleTrouble": [
+  "default",
+  "glider",
+  "highSpeed"
+ ],
+ "pieExpress": [
+  "default",
+  "doubleJump"
+ ],
+ "buckLightdeer": [
+  "default"
+ ],
+ "chillOut": [
+  "default"
+ ],
+ "candyCrash": [
+  "default",
+  "highSpeed"
+ ],
+ "meanGreenMachine": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "roadRage": [
+  "default"
+ ],
+ "frankmobile": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "perfectoplasma": [
+  "default",
+  "highSpeed"
+ ],
+ "fireStarter": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "xtraCool": [
+  "default"
+ ],
+ "turboLove": [
+  "default",
+  "doubleJump"
+ ],
+ "goldRush": [
+  "default"
+ ],
+ "theGreenFlame": [
+  "default",
+  "glider",
+  "doubleJump"
+ ],
+ "luckyFish": [
+  "default",
+  "highSpeed"
+ ],
+ "marbleous": [
+  "default",
+  "highSpeed",
+  "doubleJump"
+ ],
+ "arenaRider": [
+  "default",
+  "superJump"
+ ],
+ "majorSpeed": [
+  "default"
+ ],
+ "pixelPerfect": [
+  "default",
+  "doubleJump",
+  "glider"
+ ],
+ "sunnySideUp": [
+  "default"
+ ],
+ "buzzbny": [
+  "default",
+  "highSpeed"
+ ],
+ "fastFurward": [
+  "default",
+  "superJump",
+  "highSpeed"
+ ],
+ "cathleticRide": [
+  "default"
+ ],
+ "foxTrotter": [
+  "default",
+  "glider"
+ ],
+ "sewerSurfer": [
+  "default",
+  "glider",
+  "superJump"
+ ],
+ "ratTrap": [
+  "default",
+  "superJump"
+ ],
+ "14thBirthday": [
+  "default"
+ ],
+ "bombBastic": [
+  "default"
+ ],
+ "templeRush": [
+  "default",
+  "doubleJump",
+  "lowrider"
+ ],
+ "firefly5": [
+  "default",
+  "glider"
+ ],
+ "bloomBoom": [
+  "default"
+ ],
+ "offRoadRanger": [
+  "default",
+  "highSpeed",
+  "superJump"
+ ],
+ "bayDrifter": [
+  "default",
+  "doubleJump"
+ ],
+ "rooRush": [
+  "default"
+ ],
+ "jeTaime": [
+  "default"
+ ],
+ "sweetElite": [
+  "default",
+  "highSpeed",
+  "glider"
+ ],
+ "yellowFellow": [
+  "default",
+  "superJump"
+ ],
+ "vulkarion": [
+  "default",
+  "glider",
+  "highSpeed"
+ ],
+ "silverFlame": [
+  "default",
+  "doubleJump"
+ ],
+ "forestForce": [
+  "default"
+ ],
+ "astroBelt": [
+  "default",
+  "highSpeed",
+  "lowrider"
+ ],
+ "lunarSurfer": [
+  "default"
+ ],
+ "neoGlarx4000": [
+  "default",
+  "doubleJump"
+ ],
+ "plankenstein": [
+  "default",
+  "superJump",
+  "glider"
+ ],
+ "digiDash": [
+  "default"
+ ],
+ "sketchySkater": [
+  "default",
+  "highSpeed"
+ ],
+ "batLuck": [
+  "default",
+  "superJump",
+  "highSpeed"
+ ],
+ "broom": [
+  "default",
+  "doubleJump"
+ ],
+ "noxDrift": [
+  "default"
+ ],
+ "bambooster": [
+  "default",
+  "highSpeed"
+ ],
+ "dynastyDrifter": [
+  "default",
+  "doubleJump",
+  "lowrider"
+ ],
+ "nimbusLink": [
+  "default"
+ ]
+}

@@ -13,3 +13,12 @@ backup.ab
 /sdcard/
 *.part
 *.zip
+
+# Windows build artifacts
+windows/build/
+windows/dist/
+windows/*.spec.bak
+*.exe
+Thumbs.db
+desktop.ini
+.venv/

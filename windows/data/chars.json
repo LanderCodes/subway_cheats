@@ -1,0 +1,1215 @@
+{
+ "jake": [
+  "default",
+  "darkOutfit",
+  "starOutfit"
+ ],
+ "tricky": [
+  "default",
+  "heartOutfit",
+  "camoOutfit"
+ ],
+ "fresh": [
+  "default",
+  "funkOutfit",
+  "sportOutfit"
+ ],
+ "yutani": [
+  "default",
+  "gadgetOutfit"
+ ],
+ "bsPointyGuy": [
+  "default"
+ ],
+ "frank": [
+  "default",
+  "clownOutfit",
+  "tigerOutfit"
+ ],
+ "ella": [
+  "default",
+  "rastaOutfit",
+  "goldOutfit"
+ ],
+ "king": [
+  "default",
+  "countOutfit",
+  "royalOutfit"
+ ],
+ "ninja": [
+  "default",
+  "yangOutfit",
+  "flameOutfit"
+ ],
+ "lucy": [
+  "default",
+  "gothOutfit",
+  "steamOutfit"
+ ],
+ "tasha": [
+  "default",
+  "cheeroutfit",
+  "gymOutfit"
+ ],
+ "tagbot": [
+  "default",
+  "spaceOutfit",
+  "toyOutfit"
+ ],
+ "brody": [
+  "default",
+  "poshOutfit",
+  "chillOutfit"
+ ],
+ "princeK": [
+  "default",
+  "jagOutfit",
+  "shineOutfit"
+ ],
+ "zoe": [
+  "default",
+  "curlyOutfit",
+  "bikerOutfit"
+ ],
+ "zombiejake": [
+  "default",
+  "seriousOutfit"
+ ],
+ "elfTricky": [
+  "default",
+  "iceOutfit",
+  "candyOutfit"
+ ],
+ "tony": [
+  "default",
+  "folkOutfit",
+  "gameOutfit"
+ ],
+ "carmen": [
+  "default",
+  "shakeOutfit",
+  "teamOutfit"
+ ],
+ "roberto": [
+  "default",
+  "fanOutfit",
+  "culesOutfit"
+ ],
+ "kim": [
+  "default",
+  "diveOutfit",
+  "coastOutfit"
+ ],
+ "harumi": [
+  "default",
+  "meowOutfit",
+  "furyOutfit"
+ ],
+ "nick": [
+  "default",
+  "speedOutfit",
+  "neonOutfit"
+ ],
+ "coco": [
+  "default",
+  "artOutfit",
+  "jesterOutfit"
+ ],
+ "sun": [
+  "default",
+  "spotOutfit",
+  "rogueOutfit"
+ ],
+ "alex": [
+  "default",
+  "technoOutfit"
+ ],
+ "eddy": [
+  "default",
+  "trickOutfit",
+  "vampireOutfit"
+ ],
+ "jamie": [
+  "default",
+  "tophatOutfit",
+  "hatterOutfit"
+ ],
+ "jay": [
+  "default",
+  "blueOutfit",
+  "colorMasterOutfit"
+ ],
+ "mina": [
+  "default",
+  "roboOutfit",
+  "popOutfit"
+ ],
+ "rosa": [
+  "default",
+  "foxOutfit",
+  "ceiboOutfit"
+ ],
+ "olivia": [
+  "default",
+  "skateOutfit",
+  "derbyMacabreOutfit"
+ ],
+ "edison": [
+  "default",
+  "urbanOutfit"
+ ],
+ "wayne": [
+  "default",
+  "chiefOutfit",
+  "knightOutfit"
+ ],
+ "jasmine": [
+  "default",
+  "safariOutfit",
+  "ankhOutfit"
+ ],
+ "noon": [
+  "default",
+  "pinkOutfit",
+  "siamOutfit"
+ ],
+ "dino": [
+  "default"
+ ],
+ "buddy": [
+  "default",
+  "sunnyOutfit",
+  "candyOutfit"
+ ],
+ "rex": [
+  "default",
+  "showOutfit",
+  "winOutfit"
+ ],
+ "izzy": [
+  "default",
+  "alohaOutfit",
+  "lakiOutfit"
+ ],
+ "amira": [
+  "default",
+  "genieOutfit",
+  "jewelOutfit"
+ ],
+ "marco": [
+  "default",
+  "maskOutfit",
+  "nobleOutfit"
+ ],
+ "nikos": [
+  "default",
+  "heroOutfit",
+  "hopperOutfit"
+ ],
+ "zuri": [
+  "default",
+  "cityOutfit"
+ ],
+ "mike": [
+  "default",
+  "howlOutfit",
+  "jagerOutfit"
+ ],
+ "jenny": [
+  "default",
+  "partyOutfit",
+  "pixelOutfit"
+ ],
+ "jaro": [
+  "default",
+  "jokerOutfit"
+ ],
+ "aina": [
+  "default",
+  "daisyOutfit",
+  "blueOutfit"
+ ],
+ "carlos": [
+  "default",
+  "incaOutfit",
+  "ponchoOutfit"
+ ],
+ "jia": [
+  "default",
+  "wildOutfit",
+  "unicornOutfit"
+ ],
+ "bjarki": [
+  "default",
+  "powerOutfit",
+  "fisherOutfit"
+ ],
+ "ramona": [
+  "default",
+  "pinaOutfit",
+  "elegantOutfit"
+ ],
+ "lauren": [
+  "default",
+  "tallyOutfit",
+  "pilotOutfit"
+ ],
+ "malik": [
+  "default",
+  "tuskOutfit",
+  "penguinOutfit"
+ ],
+ "jolien": [
+  "default",
+  "floristOutfit",
+  "springOutfit"
+ ],
+ "philip": [
+  "default",
+  "racerOutfit",
+  "captainOutfit"
+ ],
+ "freya": [
+  "default",
+  "vikingOutfit",
+  "winterMagicOutfit"
+ ],
+ "salma": [
+  "default",
+  "nomadOutfit",
+  "talismanOutfit"
+ ],
+ "lee": [
+  "default",
+  "silkOutfit",
+  "wudangOutfit"
+ ],
+ "diego": [
+  "default",
+  "flamencoOutfit",
+  "chivalryoutfit"
+ ],
+ "manny": [
+  "default",
+  "mariachiOutfit",
+  "luchadorOutfit"
+ ],
+ "nicolai": [
+  "default",
+  "frostOutfit",
+  "fauxFurOutfit"
+ ],
+ "ez": [
+  "default",
+  "touchdownOutfit",
+  "JiveOutfit"
+ ],
+ "sofia": [
+  "default",
+  "gauchoOutfit",
+  "tangoOutfit"
+ ],
+ "dylan": [
+  "default",
+  "lifeguardOutfit",
+  "walkmanOutfit"
+ ],
+ "boombot": [
+  "default"
+ ],
+ "nina": [
+  "default",
+  "cyberPunkOutfit",
+  "whitenightOutfit"
+ ],
+ "brandon": [
+  "default",
+  "kungFuOutfit"
+ ],
+ "scarlett": [
+  "default",
+  "catrinaOutfit",
+  "botanicalHorrorOutfit"
+ ],
+ "alicia": [
+  "default",
+  "tracksuitOutfit",
+  "fallOutfit"
+ ],
+ "missMaia": [
+  "default"
+ ],
+ "hugo": [
+  "default",
+  "mountainOutfit",
+  "piratOutfit"
+ ],
+ "rabbot": [
+  "default",
+  "ironbunOutfit"
+ ],
+ "rin": [
+  "default",
+  "lunarOutfit"
+ ],
+ "kareem": [
+  "default",
+  "SilkOutfit"
+ ],
+ "ace": [
+  "default",
+  "pilotOutfit"
+ ],
+ "mei": [
+  "default",
+  "islanderOutfit",
+  "bumiOutfit"
+ ],
+ "mimi": [
+  "default",
+  "folkOutfit"
+ ],
+ "maeko": [
+  "default",
+  "hostessOutfit",
+  "streetOutfit"
+ ],
+ "alba": [
+  "default",
+  "cowgirlOutfit",
+  "spaceOutfit"
+ ],
+ "amy": [
+  "default",
+  "regularOutfit"
+ ],
+ "festiveFresh": [
+  "default",
+  "hoodieOutfit"
+ ],
+ "festiveFreshFreshSnowOutfit": [
+  "default"
+ ],
+ "monkbot": [
+  "default"
+ ],
+ "ming": [
+  "default",
+  "whitesnakeOutfit"
+ ],
+ "liu": [
+  "default",
+  "birdwatcherOutfit"
+ ],
+ "callum": [
+  "default",
+  "changelingOutfit",
+  "pinkpunkOutfit"
+ ],
+ "jack": [
+  "default",
+  "businessOutfit"
+ ],
+ "nflpaTomBrady": [
+  "default"
+ ],
+ "nflpaDakPrescott": [
+  "default"
+ ],
+ "nflpaLamarJackson": [
+  "default"
+ ],
+ "nflpaSaquonBarkley": [
+  "default"
+ ],
+ "nflpaPatrickMahomes": [
+  "default"
+ ],
+ "nflpaOdellBeckhamJr": [
+  "default"
+ ],
+ "tankbot": [
+  "default",
+  "incaOutfit"
+ ],
+ "cathy": [
+  "default",
+  "visualkeiOutfit",
+  "seasideOutfit"
+ ],
+ "noel": [
+  "default",
+  "bigblueOutfit"
+ ],
+ "morgan": [
+  "default",
+  "swampMysteryOutfit"
+ ],
+ "andy": [
+  "default",
+  "gamerOutfit",
+  "theGreatOutdoorOutfit"
+ ],
+ "festiveJake": [
+  "default"
+ ],
+ "festiveJakeJesterJakeOutfit": [
+  "default"
+ ],
+ "festiveTricky": [
+  "default"
+ ],
+ "festiveTrickyCandyBonesOutfit": [
+  "default"
+ ],
+ "festiveTrickyEndearingTrickyOutfit": [
+  "default"
+ ],
+ "festiveYutani": [
+  "default"
+ ],
+ "festiveYutaniGiftGrifterOutfit": [
+  "default"
+ ],
+ "festiveSpike": [
+  "default"
+ ],
+ "festiveFrank": [
+  "default",
+  "anubisOutfit",
+  "fortuneOutfit"
+ ],
+ "frankette": [
+  "default"
+ ],
+ "spacebot": [
+  "default"
+ ],
+ "rat": [
+  "default"
+ ],
+ "ox": [
+  "default"
+ ],
+ "qin": [
+  "default",
+  "warriorOutfit"
+ ],
+ "hou": [
+  "default",
+  "archerOutfit"
+ ],
+ "zayn": [
+  "default",
+  "stealthOutfit",
+  "eastvestOutfit"
+ ],
+ "darryl": [
+  "default",
+  "gonzoOutfit"
+ ],
+ "lana": [
+  "default",
+  "nordicOutfit"
+ ],
+ "bonnie": [
+  "default",
+  "harajukuOutfit",
+  "luckyOutfit"
+ ],
+ "bonnieThumperOutfit": [
+  "default"
+ ],
+ "buzz": [
+  "default"
+ ],
+ "trym": [
+  "default",
+  "noblenewbieOutfit"
+ ],
+ "prideJake": [
+  "default"
+ ],
+ "prideTricky": [
+  "default"
+ ],
+ "prideFresh": [
+  "default"
+ ],
+ "prideYutani": [
+  "default"
+ ],
+ "prideSpike": [
+  "default"
+ ],
+ "prideFrank": [
+  "default"
+ ],
+ "prideBot": [
+  "default"
+ ],
+ "alexandre": [
+  "default",
+  "stanOutfit"
+ ],
+ "parkourRin": [
+  "default"
+ ],
+ "akira": [
+  "default",
+  "nightriderOutfit"
+ ],
+ "koral": [
+  "default",
+  "tentaqueenOutfit",
+  "subexplorerOutfit"
+ ],
+ "cleo": [
+  "default",
+  "heartbreakerOutfit",
+  "blossomqueenOutfit"
+ ],
+ "taha": [
+  "default",
+  "TropiTahaOutfit",
+  "chilitahaOutfit"
+ ],
+ "bobTheBlob": [
+  "default",
+  "slimeOutfit",
+  "jingleOutfit"
+ ],
+ "mala": [
+  "default",
+  "lunarOutfit",
+  "missmosaicOutfit"
+ ],
+ "phoenix": [
+  "default",
+  "partyBusinessOutfit",
+  "summerOutfit"
+ ],
+ "clementine": [
+  "default",
+  "frostyOutfit",
+  "hideandsheepOutfit"
+ ],
+ "gingerbot": [
+  "default",
+  "wrapperOutfit"
+ ],
+ "hasina": [
+  "default",
+  "worldCupOutfit",
+  "holidayOutfit"
+ ],
+ "tiger": [
+  "default"
+ ],
+ "charlie": [
+  "default"
+ ],
+ "pink": [
+  "default",
+  "spellcasterOutfit",
+  "witchcapOutfit"
+ ],
+ "george": [
+  "default",
+  "moonbunOutfit",
+  "eggstravaganzaOutfit"
+ ],
+ "dummy": [
+  "default",
+  "skellyOutfit"
+ ],
+ "superRunnerJake": [
+  "default"
+ ],
+ "superRunnerTricky": [
+  "default"
+ ],
+ "prideMissMaia": [
+  "default"
+ ],
+ "superRunnerFresh": [
+  "default"
+ ],
+ "superRunnerYutani": [
+  "default"
+ ],
+ "theBurgerKing": [
+  "default"
+ ],
+ "moira": [
+  "default",
+  "thetouristOutfit",
+  "theholiOutfit"
+ ],
+ "zihao": [
+  "default",
+  "vanillastrawberryOutfit"
+ ],
+ "alia": [
+  "default",
+  "sneakyblindersOutfit"
+ ],
+ "fantasma": [
+  "default"
+ ],
+ "fantasmaCarnavalOutfit": [
+  "default"
+ ],
+ "songYi": [
+  "default",
+  "goldencrushOutfit",
+  "luckyKoiOutfit"
+ ],
+ "fernando": [
+  "default",
+  "superscoutOutfit"
+ ],
+ "elfJake": [
+  "default"
+ ],
+ "elfFresh": [
+  "default"
+ ],
+ "elfYutani": [
+  "default"
+ ],
+ "rabbit": [
+  "default"
+ ],
+ "soul": [
+  "default",
+  "centurionOutfit"
+ ],
+ "soulSirEasterOutfit": [
+  "default"
+ ],
+ "tutti": [
+  "default"
+ ],
+ "frutti": [
+  "default"
+ ],
+ "spraybot": [
+  "default"
+ ],
+ "catrine": [
+  "default",
+  "trailmixOutfit"
+ ],
+ "rain": [
+  "default",
+  "gardenOutfit"
+ ],
+ "alfie": [
+  "default",
+  "cupidOutfit",
+  "backyardtrollOutfit"
+ ],
+ "bruno": [
+  "default",
+  "pixelProOutfit"
+ ],
+ "taina": [
+  "default",
+  "judokaOutfit"
+ ],
+ "yutaniHarlequinToad": [
+  "default"
+ ],
+ "yuto": [
+  "default"
+ ],
+ "yutoRockOutOutfit": [
+  "default"
+ ],
+ "hali": [
+  "default"
+ ],
+ "haliGummyBearOutfit": [
+  "default"
+ ],
+ "thursday": [
+  "default",
+  "lilImpOutfit",
+  "jeudiOutfit"
+ ],
+ "outatimeJake": [
+  "default"
+ ],
+ "jiYeong": [
+  "default",
+  "celestialOutfit"
+ ],
+ "musician": [
+  "default"
+ ],
+ "vivienne": [
+  "default",
+  "hollywoodglamOutfit"
+ ],
+ "vivienneNightHecateOutfit": [
+  "default"
+ ],
+ "lawrence": [
+  "default",
+  "snowballerOutfit"
+ ],
+ "clockworkJohnny": [
+  "default"
+ ],
+ "captainFlash": [
+  "default"
+ ],
+ "skye": [
+  "default",
+  "skyAttackOutfit"
+ ],
+ "thunder": [
+  "default",
+  "neonFuOutfit"
+ ],
+ "thunderUrbanHeroOutfit": [
+  "default"
+ ],
+ "azura": [
+  "default"
+ ],
+ "dragonyear": [
+  "default"
+ ],
+ "astra": [
+  "default"
+ ],
+ "stella": [
+  "default"
+ ],
+ "stellaColorFeverOutfit": [
+  "default"
+ ],
+ "lucky": [
+  "default"
+ ],
+ "luckyHaengUnOutfit": [
+  "default"
+ ],
+ "meggan": [
+  "default"
+ ],
+ "redpanda": [
+  "default"
+ ],
+ "hamza": [
+  "default"
+ ],
+ "faiza": [
+  "default"
+ ],
+ "teabot": [
+  "default"
+ ],
+ "finn": [
+  "default"
+ ],
+ "electra": [
+  "default"
+ ],
+ "hammybee": [
+  "default"
+ ],
+ "pixeljake": [
+  "default"
+ ],
+ "ballerinatricky": [
+  "default"
+ ],
+ "guardking": [
+  "default"
+ ],
+ "riley": [
+  "default",
+  "aquamarineOutfit"
+ ],
+ "lily": [
+  "default",
+  "kangarumiOutfit"
+ ],
+ "rudyrascal": [
+  "default"
+ ],
+ "ventura": [
+  "default"
+ ],
+ "glorgalax": [
+  "default",
+  "galaxyEmpurrorOutfit"
+ ],
+ "helene": [
+  "default",
+  "ogrepowerOutfit"
+ ],
+ "leo": [
+  "default"
+ ],
+ "ozzy": [
+  "default"
+ ],
+ "pins": [
+  "default"
+ ],
+ "audrey": [
+  "default"
+ ],
+ "billybean": [
+  "default"
+ ],
+ "ruhi": [
+  "default"
+ ],
+ "kedi": [
+  "default"
+ ],
+ "drflyman": [
+  "default"
+ ],
+ "pumpkinpete": [
+  "default"
+ ],
+ "logan": [
+  "default"
+ ],
+ "ginger": [
+  "default"
+ ],
+ "leif": [
+  "default",
+  "fireBirdOutfit"
+ ],
+ "sindri": [
+  "default"
+ ],
+ "demi": [
+  "default"
+ ],
+ "snowy": [
+  "default"
+ ],
+ "grandjuke": [
+  "default"
+ ],
+ "snake": [
+  "default"
+ ],
+ "tangyuan": [
+  "default"
+ ],
+ "valentina": [
+  "default"
+ ],
+ "valentinaPinkAphroditeOutfit": [
+  "default"
+ ],
+ "kaleo": [
+  "default"
+ ],
+ "kaleoKissKissOutfit": [
+  "default"
+ ],
+ "rebecaroar": [
+  "default",
+  "purrfectionOutfit"
+ ],
+ "gabriel": [
+  "default"
+ ],
+ "gabrielRadInRedOutfit": [
+  "default"
+ ],
+ "dinorange": [
+  "default"
+ ],
+ "rocky": [
+  "default"
+ ],
+ "rani": [
+  "default"
+ ],
+ "raniUrbanVibesOutfit": [
+  "default"
+ ],
+ "chickenjake": [
+  "default"
+ ],
+ "mallardtricky": [
+  "default"
+ ],
+ "finlay": [
+  "default"
+ ],
+ "finlayMerrymakerOutfit": [
+  "default"
+ ],
+ "ribbon": [
+  "default"
+ ],
+ "oniHime": [
+  "default",
+  "chillBillOutfit"
+ ],
+ "saru": [
+  "default"
+ ],
+ "saruKyaputenOutfit": [
+  "default"
+ ],
+ "loc": [
+  "default"
+ ],
+ "stevie": [
+  "default"
+ ],
+ "stevieHitchhikerOutfit": [
+  "default"
+ ],
+ "berta": [
+  "default"
+ ],
+ "bertaSummerEleganzaOutfit": [
+  "default"
+ ],
+ "costa": [
+  "default"
+ ],
+ "yutaniTreeFrog": [
+  "default"
+ ],
+ "rochelleRebelle": [
+  "default"
+ ],
+ "asher": [
+  "default"
+ ],
+ "asherSplasherOutfit": [
+  "default"
+ ],
+ "whiteRabbit": [
+  "default",
+  "nightshadeOutfit"
+ ],
+ "peter": [
+  "default"
+ ],
+ "peterBunAndRunOutfit": [
+  "default"
+ ],
+ "tara": [
+  "default"
+ ],
+ "henry": [
+  "default"
+ ],
+ "henrySportySundayOutfit": [
+  "default"
+ ],
+ "sunny": [
+  "default"
+ ],
+ "eightBallJake": [
+  "default"
+ ],
+ "bsElegantGirl": [
+  "default"
+ ],
+ "bsToughGuy": [
+  "default"
+ ],
+ "spike": [
+  "default",
+  "rockOutfit",
+  "punkOutfit"
+ ],
+ "bsBeardedGuy": [
+  "default"
+ ],
+ "bsSkullGuy": [
+  "default"
+ ],
+ "bsFastGirl": [
+  "default"
+ ],
+ "almaBrava": [
+  "default"
+ ],
+ "mateo": [
+  "default"
+ ],
+ "mateoSantoCampoOutfit": [
+  "default"
+ ],
+ "amongUsRed": [
+  "default"
+ ],
+ "amongUsYellow": [
+  "default"
+ ],
+ "amongUsBlack": [
+  "default"
+ ],
+ "amongUsCyan": [
+  "default"
+ ],
+ "amongUsRose": [
+  "default"
+ ],
+ "amongUsGreen": [
+  "default"
+ ],
+ "jooWon": [
+  "default"
+ ],
+ "jooWonAegyoOutfit": [
+  "default"
+ ],
+ "siWoo": [
+  "default",
+  "springtimeOutfit"
+ ],
+ "mrGobbles": [
+  "default"
+ ],
+ "rosie": [
+  "default"
+ ],
+ "rosieautumnSpiceOutfit": [
+  "default"
+ ],
+ "ballerinaLatticina": [
+  "default"
+ ],
+ "frankNoir": [
+  "default"
+ ],
+ "holly": [
+  "default",
+  "blobbusterOutfit"
+ ],
+ "seanSnow": [
+  "default",
+  "frankenstyleOutfit"
+ ],
+ "mia": [
+  "default",
+  "alpineAmourOutfit"
+ ],
+ "rosalita": [
+  "default"
+ ],
+ "lorcan": [
+  "default"
+ ],
+ "horse": [
+  "default"
+ ],
+ "vittorio": [
+  "default"
+ ],
+ "enzo": [
+  "default",
+  "gladiatorOutfit"
+ ],
+ "sprinkle": [
+  "default"
+ ],
+ "bunnyBetty": [
+  "default",
+  "redBunnyOutfit"
+ ],
+ "tsukiChan": [
+  "default"
+ ],
+ "kaito": [
+  "default",
+  "hayaKitsuneOutfit"
+ ],
+ "toaxx": [
+  "default"
+ ],
+ "ratak": [
+  "default",
+  "radioRativeOutfit"
+ ],
+ "red": [
+  "default"
+ ],
+ "chuck": [
+  "default"
+ ],
+ "goldenGuardian": [
+  "default"
+ ],
+ "lestari": [
+  "default",
+  "hotSpotOutfit"
+ ],
+ "danUnder": [
+  "default"
+ ],
+ "sandy": [
+  "default",
+  "sinkOrSwimOutfit"
+ ],
+ "redino": [
+  "default"
+ ],
+ "marieMacaron": [
+  "default"
+ ],
+ "pierre": [
+  "default",
+  "bonVoyageOutfit"
+ ],
+ "runaDarko": [
+  "default"
+ ],
+ "wolf": [
+  "default",
+  "heroOfRainOutfit"
+ ],
+ "orionStarborn": [
+  "default"
+ ],
+ "alpha": [
+  "default",
+  "omegaOutfit"
+ ],
+ "amongUsFrank": [
+  "default"
+ ],
+ "santiGrafito": [
+  "default"
+ ],
+ "matilda": [
+  "default",
+  "comicCoreOutfit"
+ ],
+ "bbno$": [
+  "default"
+ ],
+ "xoloko": [
+  "default"
+ ],
+ "countCorvin": [
+  "default"
+ ],
+ "wuJadeLing": [
+  "default"
+ ],
+ "meihua": [
+  "default",
+  "baoBaoOutfit"
+ ]
+}

@@ -33,6 +33,18 @@ A tool for editing Subway Surfers profile data on a USB-connected **Android** ph
 python3 subway_gui.py
 ```
 
+### Windows
+
+A self-contained Windows build lives in [`windows/`](windows/), including a Tkinter GUI and PyInstaller build:
+
+```bat
+windows\subway.bat status
+windows\subway-gui.bat
+windows\build-windows.bat   :: builds dist\subway.exe and dist\subway-gui.exe
+```
+
+See [`windows/README.md`](windows/README.md) for details.
+
 ## Requirements
 
 - ADB and a USB-connected phone with Subway Surfers installed
