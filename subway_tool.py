@@ -5,6 +5,8 @@ import sys
 if "android" not in sys.platform:
     print("Warning: This tool is designed for Android via ADB.", file=sys.stderr)
 
+"""
+
 Examples:
   ./subway status
   ./subway refill 2000000000
@@ -1041,18 +1043,16 @@ def menu():
         print("error:", exc)
         return
     while True:
-        print("""
-1) Status
-2) Refill all currencies
-3) Set one currency
-4) Own     (e.g. char holly | outfit holly partyOutfit | all chars)
-5) Disown  (e.g. char holly | outfit holly partyOutfit)
-6) List    (chars/outfits/boards/portraits/frames/backgrounds/currencies)
-7) Select  (char/board/portrait/frame/background)
-8) Backup all profile files
-9) Undo last change
-0) Quit
-""")
+        print("1) Status")
+        print("2) Refill all currencies")
+        print("3) Set one currency")
+        print("4) Own     (e.g. char holly | outfit holly partyOutfit | all chars)")
+        print("5) Disown  (e.g. char holly | outfit holly partyOutfit)")
+        print("6) List    (chars/outfits/boards/portraits/frames/backgrounds/currencies)")
+        print("7) Select  (char/board/portrait/frame/background)")
+        print("8) Backup all profile files")
+        print("9) Undo last change")
+        print("0) Quit")
         try:
             choice = input("> ").strip()
             if choice == "0":
