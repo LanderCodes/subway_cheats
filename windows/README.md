@@ -64,8 +64,8 @@ Outputs:
 - `dist\subway.exe` — command-line tool
 - `dist\subway-gui.exe` — windowed GUI
 
-The shared `subway_tool.py`, `subway_gui_tk.py`, `ios_backup.py`, and
-`data\` from the repository root are bundled into both executables.
+The shared `subway_tool.py`, `subway_gui_tk.py`, and `data\` from the repository
+root plus `mac\ios_backup.py` are bundled into both executables.
 
 ## State and backups
 
@@ -112,6 +112,6 @@ the iPhone workflow is documented for macOS in [`../mac/README.md`](../mac/READM
 - The game is force-stopped before every write. Reopen it afterwards or pass
   `--start`.
 - Only one ADB device is used unless `--serial` is given.
-- `subway_tool.py`, `subway_gui_tk.py`, and `ios_backup.py` at the repository
-  root are the shared sources. This folder only contains Windows launchers and
-  the PyInstaller spec.
+- `subway_tool.py` and `subway_gui_tk.py` at the repository root are shared
+  sources; `ios_backup.py` lives in `mac\`. This folder contains the Windows
+  launchers and the PyInstaller spec.

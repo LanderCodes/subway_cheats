@@ -66,11 +66,18 @@ planned; use the manual steps in [`mac/README.md`](mac/README.md) for now.
 
 ### Manual
 
-Linux/macOS:
+Linux:
 
 ```bash
 python3 -m pip install cryptography
-./subway status
+linux/subway status
+```
+
+macOS:
+
+```bash
+python3 -m pip install cryptography
+mac/subway status
 ```
 
 Windows:
@@ -80,20 +87,24 @@ py -3 -m pip install cryptography
 windows\subway.bat status
 ```
 
-Run `./subway menu` (or `windows\subway.bat menu`) for the interactive menu.
+Run `linux/subway menu`, `mac/subway menu`, or `windows\subway.bat menu` for
+the interactive menu.
 
 ## Usage
 
+After installing, the `subway` command is on PATH. From a checkout, use
+`linux/subway`, `mac/subway`, or `windows\subway.bat` instead.
+
 ```bash
-./subway status
-./subway refill 2000000000
-./subway set currency 2 999999999
-./subway own char holly songYi
-./subway own outfit holly partyOutfit sunglassesOutfit
-./subway own all chars
-./subway list chars
-./subway backup
-./subway undo
+subway status
+subway refill 2000000000
+subway set currency 2 999999999
+subway own char holly songYi
+subway own outfit holly partyOutfit sunglassesOutfit
+subway own all chars
+subway list chars
+subway backup
+subway undo
 ```
 
 Common flags: `--serial <id>`, `--profile-dir <folder>`, `--key`, `--iv`,
@@ -104,8 +115,8 @@ Common flags: `--serial <id>`, `--profile-dir <folder>`, `--key`, `--iv`,
 Edit a local folder instead of a phone:
 
 ```bash
-./subway --profile-dir ./profile status
-./subway --profile-dir ./profile refill 2000000000
+subway --profile-dir ./profile status
+subway --profile-dir ./profile refill 2000000000
 ```
 
 Or set `SUBWAY_PROFILE_DIR`. This is also how the iOS pull/push workflow edits
@@ -114,8 +125,8 @@ profile files.
 ### GUI
 
 ```bash
-python3 subway_gui.py       # Linux, GTK4
-python3 subway_gui_tk.py    # Windows/macOS, Tkinter
+python3 linux/subway_gui.py   # Linux, GTK4
+python3 subway_gui_tk.py      # Windows/macOS, Tkinter
 ```
 
 ## Android
@@ -124,7 +135,7 @@ python3 subway_gui_tk.py    # Windows/macOS, Tkinter
    (*Settings → About phone → tap Build number 7 times → Developer options*).
 2. Connect the phone and approve the debugging prompt.
 3. Confirm the device is visible with `adb devices`.
-4. Run `./subway status`.
+4. Run `subway status`.
 
 The game is force-stopped before every write. Reopen it afterwards, or pass
 `--start`.
@@ -135,12 +146,12 @@ Use an **unencrypted** Finder or `idevicebackup2` backup. Encrypted backups
 store `Manifest.db` encrypted and cannot be read by this tool.
 
 ```bash
-./subway ios backups        # list local backups
-./subway ios info           # list profile files in the newest backup
-./subway ios pull <dir>     # extract profile files
-./subway --profile-dir <dir> refill 2000000000
-./subway ios push <dir>     # inject files into the backup
-./subway ios restore --yes  # restore the backup to the phone
+mac/subway ios backups        # list local backups
+mac/subway ios info           # list profile files in the newest backup
+mac/subway ios pull <dir>     # extract profile files
+mac/subway --profile-dir <dir> refill 2000000000
+mac/subway ios push <dir>     # inject files into the backup
+mac/subway ios restore --yes  # restore the backup to the phone
 ```
 
 `ios push` saves an undo snapshot to `~/.subway-tool/ios-undo/`. Restore uses
@@ -150,17 +161,18 @@ limitations.
 
 ## Platform folders
 
-The core sources are shared at the repository root:
+Shared sources live at the repository root:
 
 - `subway_tool.py` — CLI and profile codec
-- `subway_gui_tk.py` — Tkinter GUI
-- `ios_backup.py` — iOS backup reader/writer
+- `subway_gui_tk.py` — Tkinter GUI (Windows/macOS)
 - `data/` — bundled reference JSON
+- `tests/` — synthetic profile and backup tests
 
-Platform folders only contain launchers and build files:
+Platform folders contain the code that only applies to that host:
 
-- [`windows/`](windows/) — batch launchers and PyInstaller spec
-- [`mac/`](mac/) — macOS launchers, build script, and iOS notes
+- [`windows/`](windows/) — batch launchers, PyInstaller spec, requirements
+- [`mac/`](mac/) — macOS launchers, build script, iOS backup module, notes
+- [`linux/`](linux/) — Linux launchers and GTK4 GUI
 
 ## State, backups, and safety
 

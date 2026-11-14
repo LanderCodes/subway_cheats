@@ -5,7 +5,7 @@ datas = [("../data", "data")]
 
 cli = Analysis(
     ["../subway_tool.py"],
-    pathex=[".."],
+    pathex=["..", "../mac"],
     binaries=[],
     datas=datas,
     hiddenimports=[],
@@ -40,7 +40,7 @@ cli_exe = EXE(
 
 gui = Analysis(
     ["../subway_gui_tk.py"],
-    pathex=[".."],
+    pathex=["..", "../mac"],
     binaries=[],
     datas=datas,
     hiddenimports=["subway_tool", "ios_backup"],

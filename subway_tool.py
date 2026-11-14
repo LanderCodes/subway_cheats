@@ -37,6 +37,10 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+_MAC_DIR = Path(__file__).resolve().parent / "mac"
+if _MAC_DIR.is_dir():
+    sys.path.insert(0, str(_MAC_DIR))
+
 import ios_backup
 
 

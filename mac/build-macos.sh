@@ -5,14 +5,16 @@ root=$(CDPATH= cd -- "$here/.." && pwd -P)
 cd "$root"
 
 python3 -m pip install --upgrade pip
-python3 -m pip install -r windows/requirements.txt
+python3 -m pip install -r mac/requirements.txt
 python3 -m PyInstaller --noconfirm --clean \
     --paths . \
+    --paths mac \
     --add-data "data:data" \
     --name subway \
     subway_tool.py
 python3 -m PyInstaller --noconfirm --clean \
     --paths . \
+    --paths mac \
     --add-data "data:data" \
     --hidden-import subway_tool \
     --hidden-import ios_backup \

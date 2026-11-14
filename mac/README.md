@@ -1,12 +1,12 @@
 # Subway Profile Tool — macOS host / iOS target
 
-This folder contains macOS launchers. The actual code lives at the repository
-root and is shared with the Linux and Windows builds:
+This folder contains the macOS launchers, build script, and iOS backup module.
+The shared sources live at the repository root:
 
-- `subway_tool.py` — CLI and profile codec
-- `subway_gui_tk.py` — Tkinter GUI
-- `ios_backup.py` — reads/writes profile files inside an iOS backup
-- `data/` — reference JSON
+- `subway_tool.py` — CLI and profile codec (root)
+- `subway_gui_tk.py` — Tkinter GUI (root)
+- `ios_backup.py` — reads/writes profile files inside an iOS backup (this folder)
+- `data/` — reference JSON (root)
 
 Two workflows are supported on a Mac:
 
@@ -55,7 +55,7 @@ Known limitations:
   command-line tools for the Tkinter GUI
 
 ```sh
-python3 -m pip install cryptography
+python3 -m pip install -r requirements.txt
 brew install libimobiledevice
 ```
 

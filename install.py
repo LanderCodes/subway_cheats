@@ -180,7 +180,7 @@ def install_linux_launchers(prefix):
     if tkinter_available():
         gui_script = REPO / "subway_gui_tk.py"
     elif importlib.util.find_spec("gi") is not None:
-        gui_script = REPO / "subway_gui.py"
+        gui_script = REPO / "linux" / "subway_gui.py"
     if gui_script is not None:
         write_launcher(
             prefix / "subway-gui",
@@ -350,7 +350,7 @@ def run(args):
         if os_name == "windows":
             say(r"  windows\subway.bat status")
         else:
-            say("  ./subway status")
+            say("  linux/subway status")
         report_system_tools(os_name)
         return 0
 

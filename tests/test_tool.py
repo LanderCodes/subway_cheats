@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "mac"))
 
 import ios_backup  # noqa: E402
 import subway_tool as st  # noqa: E402
